@@ -26,6 +26,7 @@ export async function mensagensEnviadas(sock, m) {
 
   if (fromMe || !msg) return;
 
+  /*
   const horaAtual = new Date().getHours();
   if (horaAtual >= 19 || horaAtual < 8) {
     await sock.sendMessage(jid, {
@@ -33,6 +34,7 @@ export async function mensagensEnviadas(sock, m) {
     });
     return;
   }
+  */
 
   if (atendimentos.get(jid) === "humano") return;
 
