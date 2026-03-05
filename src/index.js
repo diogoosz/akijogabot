@@ -72,13 +72,7 @@ async function startBot() {
       const jid = m.key.remoteJid;
       if (jid === "status@broadcast" || jid.endsWith("@g.us")) continue;
 
-      const fromMe = m.key.fromMe;
-      const nome = m.pushName || "Cliente";
-
       await new Promise((resolve) => setTimeout(resolve, 1500));
-
-      console.log("Enviada pelo admin: ", fromMe);
-      console.log("Jid: ", jid);
 
       await mensagensEnviadas(sock, m);
     }
