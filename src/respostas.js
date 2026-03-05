@@ -26,6 +26,13 @@ export async function mensagensEnviadas(sock, m) {
 
   if (fromMe || !msg) return;
 
+  const horaAtual = new Date().getHours();
+  if (horaAtual >= 19 || horaAtual < 8) {
+    await sock.sendMessage(jid, {
+      text: "`Olá ${nome}! Nosso horário de atendimento é das 08:00 às 19:00. No momento estamos fechados, mas deixe sua mensagem e retornaremos assim que possível! 🌙`"
+    });
+    return;
+  }
 
   if (atendimentos.get(jid) === "humano") return;
 
